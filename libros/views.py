@@ -12,9 +12,8 @@ def prestamo(request):
         if formulario.is_valid():
             cp=Prestamo.objects.count()
             pres = Prestamo.objects.create(idprestamo=cp,usuariop=formulario.cleaned_data['usuariop'], fechaI = formulario.cleaned_data['fechaI'])
-            pres.save()
             for libro_id in request.POST.getlist('librop'):
-                detalle = Detalle(prestamop=pres.id, librop=libro_id)
+                detalle = Detalle(prestamop_id=pres.id, librop_id=libro_id)
                 detalle.save()
             messages.add_message(request, messages.SUCCESS, 'Prestamo Realizado Exitosamente')
     else:

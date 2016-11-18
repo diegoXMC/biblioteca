@@ -49,8 +49,8 @@ class Prestamo(models.Model):
         return self.idprestamo
 
 class Detalle(models.Model):
-    prestamop = models.ForeignKey(Prestamo, null=True, blank=True)
-    librop = models.ForeignKey(Libro, null=True, blank=True)
+    prestamop = models.ForeignKey(Prestamo, on_delete=models.CASCADE)
+    librop = models.ForeignKey(Libro, on_delete=models.CASCADE)
 
 class DetalleInLine(admin.TabularInline):
     model = Detalle
