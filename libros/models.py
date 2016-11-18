@@ -38,3 +38,8 @@ class Libro(models.Model):
 
     def __str__(self):
         return self.isbn
+
+class Prestamo(models.Model):
+    librop = models.ForeignKey(Libro, null=True, blank=True)
+    usuariop = models.ForeignKey(Usuario, null=True, blank=True)
+    fechaI = models.DateTimeField(blank=True, null=True)
