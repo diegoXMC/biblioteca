@@ -4,6 +4,7 @@
     <h1>Nuevo Prestamo</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ formulario.as_p }}
+        {{ formulario2.as_p }}
         <button type="submit" class="save btn btn-default">Guardar</button>
     </form>
 {% endblock %}
